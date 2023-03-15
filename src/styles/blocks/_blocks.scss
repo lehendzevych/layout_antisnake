@@ -1,0 +1,26 @@
+.blocks {
+  display: grid;
+
+  &__item {
+    min-width: $block-height;
+    height: $block-height;
+    font-size: $block-font-size;
+    color: #fff;
+    line-height: $block-height;
+    text-align: center;
+  
+    @for $index from 0 through 5 {
+      &:nth-child(#{6 - $index}) {
+        background-color: rgb($index * 51, 0, 0);
+      }
+    }
+  }
+
+  @include onTablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
